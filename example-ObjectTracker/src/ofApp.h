@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "FaceTracker.h"
+#include "ObjectTracker.h"
 
 class ofApp : public ofBaseApp{
     
@@ -22,7 +22,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    ofxDLib::FaceTracker ft;
+    ofxDLib::ObjectTracker ft;
     ofVideoGrabber video;
     
     

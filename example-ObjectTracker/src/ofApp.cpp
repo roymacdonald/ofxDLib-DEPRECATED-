@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    ft.setup("",1);
+    ft.setup("");
     video.setDeviceID(0);
     video.setup(720, 480);
 //     video.setup(960, 720);

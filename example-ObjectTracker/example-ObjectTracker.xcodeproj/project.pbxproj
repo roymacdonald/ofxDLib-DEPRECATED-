@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		13AC41F92F070DBFCC926462 /* FaceTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 41D5C4FA48CDFC5B93AA1B46 /* FaceTracker.cpp */; };
 		3D6F1535C077E93BF897A4A8 /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE28813E2DF78C71BFA6868A /* source.cpp */; };
+		D41A71D61CA6F3D70017B93E /* ObjectTracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D41A71D41CA6F3D70017B93E /* ObjectTracker.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
@@ -44,9 +45,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		29DCEBD3A8FFABB607D85701 /* ofxDLib.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxDLib.h; path = ../src/ofxDLib.h; sourceTree = SOURCE_ROOT; };
-		41D5C4FA48CDFC5B93AA1B46 /* FaceTracker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FaceTracker.cpp; path = ../src/FaceTracker.cpp; sourceTree = SOURCE_ROOT; };
-		6A5FA08668E8411EF3B45E3C /* FaceTracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FaceTracker.h; path = ../src/FaceTracker.h; sourceTree = SOURCE_ROOT; };
+		29DCEBD3A8FFABB607D85701 /* ofxDLib.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxDLib.h; path = ../../../addons/ofxDLib/src/ofxDLib.h; sourceTree = SOURCE_ROOT; };
+		41D5C4FA48CDFC5B93AA1B46 /* FaceTracker.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = FaceTracker.cpp; path = ../../../addons/ofxDLib/src/FaceTracker.cpp; sourceTree = SOURCE_ROOT; };
+		6A5FA08668E8411EF3B45E3C /* FaceTracker.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = FaceTracker.h; path = ../../../addons/ofxDLib/src/FaceTracker.h; sourceTree = SOURCE_ROOT; };
+		D41A71D41CA6F3D70017B93E /* ObjectTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectTracker.cpp; path = ../src/ObjectTracker.cpp; sourceTree = "<group>"; };
+		D41A71D51CA6F3D70017B93E /* ObjectTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectTracker.h; path = ../src/ObjectTracker.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* example-ObjectTrackerDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example-ObjectTrackerDebug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -55,7 +58,7 @@
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
-		EE28813E2DF78C71BFA6868A /* source.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = source.cpp; path = ../libs/dlib/all/source.cpp; sourceTree = SOURCE_ROOT; };
+		EE28813E2DF78C71BFA6868A /* source.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = source.cpp; path = ../../../addons/ofxDLib/libs/dlib/all/source.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 			children = (
 				41D5C4FA48CDFC5B93AA1B46 /* FaceTracker.cpp */,
 				6A5FA08668E8411EF3B45E3C /* FaceTracker.h */,
+				D41A71D41CA6F3D70017B93E /* ObjectTracker.cpp */,
+				D41A71D51CA6F3D70017B93E /* ObjectTracker.h */,
 				29DCEBD3A8FFABB607D85701 /* ofxDLib.h */,
 			);
 			name = src;
@@ -256,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				D41A71D61CA6F3D70017B93E /* ObjectTracker.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				3D6F1535C077E93BF897A4A8 /* source.cpp in Sources */,
 				13AC41F92F070DBFCC926462 /* FaceTracker.cpp in Sources */,
@@ -386,7 +392,7 @@
 					"$(OF_CORE_LIBS)",
 					"-L/usr/X11R6/lib",
 				);
-				PRODUCT_NAME = "example-ObjectTrackerDebug";
+				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -421,7 +427,7 @@
 					"$(OF_CORE_LIBS)",
 					"-L/usr/X11R6/lib",
 				);
-				PRODUCT_NAME = "example-ObjectTracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
 			};
