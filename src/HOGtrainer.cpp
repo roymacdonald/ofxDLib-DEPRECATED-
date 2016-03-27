@@ -9,90 +9,7 @@
 
 #include "HOGtrainer.h"
 
-
-ofRectangle toOf(const dlib::rectangle& r){
-    return ofRectangle(r.left(), r.top(), r.width(), r.height());
-}
-ofPoint toOf(const dlib::point& p){
-    return ofPoint(p.x(), p.y(), p.z() );
-}
-
-bool fromDlib(const matrix<unsigned char>& inMat,ofPixels& outPix ){
-    
-    int w = inMat.nc();
-    int h = inMat.nr();
-    
-    outPix.allocate(w, h, 1);
-    
-    for(int y = 0; y<h; y++){
-        for(int x=0; x<w;x++){
-            outPix.setColor(x, y, ofColor(inMat(y,x)));
-        }
-    }
-    
-    
-    return true;
-}
-bool fromDlib(const array2d<unsigned char>& inPix,ofPixels& outPix ){
-    
-    int h = inPix.nr(); //number of rows
-    int w = inPix.nc(); //nuber of cols
-    ofLog()<<"inPix.nr() "<<h<<",  inPix.nc() "<<w;
-    outPix.allocate(w, h, 1);
-    
-    for(int y = 0; y<h; y++){
-        for(int x=0; x<w;x++){
-            outPix.setColor(x, y, ofColor(inPix[y][x]));
-        }
-    }
-    return true;
-}
-bool toDLib(const ofPixels& inPix, array2d<rgb_pixel>& outPix){
-    
-    int width = inPix.getWidth();
-    int height = inPix.getHeight();
-    outPix.set_size( height, width );
-    int chans = inPix.getNumChannels();
-    const unsigned char* data = inPix.getData();
-    for ( unsigned n = 0; n < height;n++ )
-    {
-        const unsigned char* v =  &data[n * width *  chans];
-        for ( unsigned m = 0; m < width;m++ )
-        {
-            if ( chans==1 )
-            {
-                unsigned char p = v[m];
-                assign_pixel( outPix[n][m], p );
-            }
-            else{
-                rgb_pixel p;
-                p.red = v[m*3];
-                p.green = v[m*3+1];
-                p.blue = v[m*3+2];
-                assign_pixel( outPix[n][m], p );
-            }
-        }
-    }
-    //    if(inPix.getNumChannels() == 3){
-    //        int h = inPix.getHeight();
-    //        int w = inPix.getWidth();
-    //        outPix.clear();
-    //        outPix.set_size(h,w);
-    //        for (int i = 0; i < h; i++) {
-    //            for (int j = 0; j < w; j++) {
-    //
-    //                outPix[i][j].red = inPix.getColor(j, i).r; //inPix[i*w + j];
-    //                outPix[i][j].green = inPix.getColor(j, i).g; //inPix[i*w + j + 1];
-    //                outPix[i][j].blue = inPix.getColor(j, i).b; //inPix[i*w + j + 2];
-    //            }
-    //        }
-    //        return true;
-    //    }else{
-    //        return  false;
-    //    }
-    return true;
-}
-
+using namespace ofxDLib;
 
 HOGtrainer::HOGtrainer()
 {
@@ -130,7 +47,7 @@ void HOGtrainer::setup(string _trainDir){
     cout << "num training images: " << images_train.size() << endl;
     cout << "num testing images:  " << images_test.size() << endl;
     
-    fromDlib(images_test[0],testPix);
+    ofxDLib::toOf(images_test[0],testPix);
     
     
     image_scanner_type scanner;
@@ -174,7 +91,7 @@ void HOGtrainer::setup(string _trainDir){
     // a face.
 //    image_window hogwin(draw_fhog(detector), "Learned fHOG detector");
     
-    fromDlib(draw_fhog(detector),hogPix);
+    ofxDLib::toOf(draw_fhog(detector),hogPix);
     
     // Now for the really fun part.  Let's display the testing images on the screen and
     // show the output of the face detector overlaid on each image.  You will see that
@@ -299,10 +216,10 @@ void HOGtrainer::nextTestImage(int i){
     
     testRects.clear();
     for(int i=0; i<dets.size(); i++){
-        testRects.push_back(toOf(dets[i]));
+        testRects.push_back(ofxDLib::toOf(dets[i]));
     }
     
-    fromDlib(images_test[curTestImage],testPix);
+    ofxDLib::toOf(images_test[curTestImage],testPix);
     
     
     curTestImage++;
@@ -321,10 +238,10 @@ void HOGtrainer::nextTrainImage(int i){
     
     trainRects.clear();
     for(int i=0; i<dets.size(); i++){
-        trainRects.push_back(toOf(dets[i]));
+        trainRects.push_back(ofxDLib::toOf(dets[i]));
     }
     
-    fromDlib(images_train[curTrainImage],trainPix);
+    ofxDLib::toOf(images_train[curTrainImage],trainPix);
     
     
     curTrainImage++;
