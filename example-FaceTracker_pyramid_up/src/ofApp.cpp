@@ -4,21 +4,23 @@
 void ofApp::setup(){
     ft.setup("");
     video.setDeviceID(0);
-    video.setup(720, 480);
+//    video.setup(720, 480);
+    video.setup(320, 240);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     video.update();
     if(video.isFrameNew()){
-        ft.findFaces(video.getPixels(),false);
+        //http://www.cppsamples.com/common-tasks/return-multiple-values.html
+        tie(newImgWidth, newImgHeight) = ft.findFaces(video.getPixels(),true);
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofSetColor(255);
-    video.draw(0, 0);
+    video.draw(0, 0,newImgWidth,newImgHeight);
     ft.draw();
 }
 //--------------------------------------------------------------

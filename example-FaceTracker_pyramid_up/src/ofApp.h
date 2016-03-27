@@ -24,5 +24,6 @@ public:
     
     ofxDLib::FaceTracker ft;
     ofVideoGrabber video;
+    int newImgWidth, newImgHeight;
     
 };

@@ -24,7 +24,7 @@ void FaceTracker::setup(string predictorDatFilePath){
  
 }
 //--------------------------------------------------------------
-void FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale){
+tuple<int,int> FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale){
     
     dlib::array2d< dlib::rgb_pixel> img;
     
@@ -39,6 +39,8 @@ void FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale){
     for (unsigned long j = 0; j < dets.size(); ++j){
         shapes.push_back(sp(img, dets[j]));
     }
+    
+    return make_tuple(img.nc(),img.nr());
 }
 //--------------------------------------------------------------
 void FaceTracker::draw(){

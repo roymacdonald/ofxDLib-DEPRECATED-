@@ -25,7 +25,7 @@ namespace ofxDLib{
     class FaceTracker{
     public:
         void setup(string predictorDatFilePath);
-        void findFaces(const ofPixels& pixels, bool bUpscale = false);
+        tuple<int,int>  findFaces(const ofPixels& pixels, bool bUpscale = false);
 
         void draw();
     protected:
