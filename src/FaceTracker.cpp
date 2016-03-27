@@ -10,16 +10,18 @@
 using namespace ofxDLib;
 //--------------------------------------------------------------
 void FaceTracker::setup(string predictorDatFilePath){
-    detector = dlib::get_frontal_face_detector();
-    if(predictorDatFilePath.empty()){
-        predictorDatFilePath = ofToDataPath("shape_predictor_68_face_landmarks.dat");
-    }
-    ofFile f(predictorDatFilePath);
-    if (f.exists()) {
-        dlib::deserialize(f.getAbsolutePath()) >> sp;
-    }else{
-        ofLogError("ofxDLib::FaceTracker","SHAPE PREDICTOR DAT FILE MISSING!!!");
-    }
+            detector = dlib::get_frontal_face_detector();
+        if(predictorDatFilePath.empty()){
+            predictorDatFilePath = ofToDataPath("shape_predictor_68_face_landmarks.dat");
+        }
+        ofFile f(predictorDatFilePath);
+        if (f.exists()) {
+            dlib::deserialize(f.getAbsolutePath()) >> sp;
+        }else{
+            ofLogError("ofxDLib::FaceTracker","SHAPE PREDICTOR DAT FILE MISSING!!!");
+        }
+
+ 
 }
 //--------------------------------------------------------------
 void FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale){
@@ -30,7 +32,7 @@ void FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale){
     if (bUpscale) {
         pyramid_up(img);
     }
-
+    
     dets.clear();
     dets = detector(img);
     shapes.clear();
@@ -40,18 +42,20 @@ void FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale){
 }
 //--------------------------------------------------------------
 void FaceTracker::draw(){
-ofPushStyle();
-ofSetColor(ofColor::red);
-ofNoFill();
-for (auto& r:dets) {
-    ofDrawRectangle(toOf(r));
-}
-ofFill();
-ofSetColor(ofColor::red);
-for (auto & s:shapes) {
-    for (int i = 0; i < s.num_parts(); i++) {
-        ofDrawCircle(toOf(s.part(i)),3);
+    ofPushStyle();
+    
+    ofSetColor(ofColor::red);
+    ofNoFill();
+    for (auto& r:dets) {
+        ofDrawRectangle(toOf(r));
     }
-}
-ofPopStyle();
+    
+    ofFill();
+    ofSetColor(ofColor::red);
+    for (auto & s:shapes) {
+        for (int i = 0; i < s.num_parts(); i++) {
+            ofDrawCircle(toOf(s.part(i)),3);
+        }
+    }
+    ofPopStyle();
 }
