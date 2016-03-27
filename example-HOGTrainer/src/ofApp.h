@@ -22,7 +22,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    HOGtrainer HOG_trainer;
+    ofxDLib::HOGtrainer HOG_trainer;
     
 
 };
