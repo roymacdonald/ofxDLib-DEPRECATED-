@@ -56,6 +56,10 @@ common:
 	ADDON_SOURCES = libs/dlib/all/source.cpp
 	ADDON_SOURCES += src/FaceTracker.cpp
 	ADDON_SOURCES += src/FaceTracker.h
+	ADDON_SOURCES += src/ObjectTracker.cpp
+	ADDON_SOURCES += src/ObjectTracker.h
+	ADDON_SOURCES += src/HOGtrainer.cpp
+	ADDON_SOURCES += src/HOGtrainer.h
 #	ADDON_SOURCES += src/ofxDLib.cpp
 	ADDON_SOURCES += src/ofxDLib.h
 	
