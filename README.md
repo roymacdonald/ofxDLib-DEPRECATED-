@@ -6,7 +6,7 @@ Inspired on ofxCv
 
 Comes with a face tracker example and works with projectGenerator.
 
-only tested on osx 10.9.5 with OF 0.9.3 
+only tested on osx 10.9.5 with OF 0.9.3, osx 10.10.5 with OF 0.9.3
 
 
 ##To run example
