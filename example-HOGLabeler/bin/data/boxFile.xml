@@ -1,0 +1,58 @@
+<dataset>
+<name>Training People from overhead</name>
+<comment>These are images from me.</comment>
+<images>
+<image file='garage.bmp'>
+<box top='353' left='276' width='249' height='249'/>
+<box top='329' left='606' width='346' height='346'/>
+<box top='232' left='654' width='-230' height='-230'/>
+</image>
+<image file='garage0.bmp'>
+<box top='411' left='510' width='273' height='273'/>
+<box top='361' left='1023' width='-293' height='-293'/>
+<box top='155' left='670' width='-156' height='-156'/>
+</image>
+<image file='garage1.bmp'>
+<box top='385' left='476' width='-281' height='-281'/>
+<box top='25' left='566' width='236' height='236'/>
+<box top='2' left='796' width='193' height='193'/>
+</image>
+<image file='garage2.bmp'>
+<box top='275' left='704' width='259' height='259'/>
+<box top='61' left='481' width='253' height='253'/>
+<box top='4' left='312' width='264' height='264'/>
+</image>
+<image file='garage3.bmp'>
+<box top='404' left='331' width='260' height='260'/>
+<box top='233' left='673' width='324' height='324'/>
+<box top='1' left='511' width='219' height='219'/>
+</image>
+<image file='garage4.bmp'>
+<box top='266' left='547' width='275' height='275'/>
+<box top='26' left='613' width='237' height='237'/>
+</image>
+<image file='garage5.bmp'>
+<box top='320' left='219' width='278' height='278'/>
+<box top='313' left='766' width='269' height='269'/>
+<box top='99' left='658' width='251' height='251'/>
+</image>
+<image file='garage6.bmp'>
+<box top='349' left='591' width='301' height='301'/>
+<box top='20' left='769' width='244' height='244'/>
+<box top='2' left='543' width='131' height='131'/>
+</image>
+<image file='garage7.bmp'>
+<box top='15' left='371' width='236' height='236'/>
+<box top='1' left='772' width='219' height='219'/>
+<box top='279' left='704' width='314' height='314'/>
+</image>
+<image file='garage8.bmp'>
+<box top='126' left='260' width='292' height='292'/>
+<box top='178' left='487' width='260' height='260'/>
+<box top='4' left='637' width='241' height='241'/>
+<box top='35' left='754' width='270' height='270'/>
+<box top='421' left='577' width='284' height='284'/>
+<box top='406' left='304' width='313' height='313'/>
+</image>
+</images>
+</dataset>

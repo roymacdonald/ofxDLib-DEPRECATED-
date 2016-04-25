@@ -1,0 +1,44 @@
+<dataset>
+<name>Testing faces</name>
+<comment>These are images from the PASCAL VOC 2011 dataset.</comment>
+<images>
+
+<image file='2008_002470.bmp'>
+    <box top='156' left='59' width='41' height='41'/>
+    <box top='170' left='152' width='31' height='31'/>
+    <box top='181' left='275' width='51' height='51'/>
+    <box top='51' left='324' width='51' height='51'/>
+    <box top='72' left='234' width='43' height='43'/>
+    <box top='88' left='182' width='34' height='34'/>
+</image>
+<image file='2008_002506.bmp'>
+    <box top='66' left='126' width='85' height='85'/>
+    <box top='102' left='228' width='80' height='80'/>
+    <box top='84' left='336' width='100' height='100'/>
+</image>
+<image file='2008_004176.bmp'>
+    <box top='74' left='326' width='42' height='42'/>
+    <box top='99' left='282' width='34' height='34'/>
+    <box top='98' left='226' width='30' height='30'/>
+    <box top='79' left='194' width='35' height='35'/>
+    <box top='117' left='164' width='35' height='35'/>
+    <box top='228' left='205' width='38' height='38'/>
+    <box top='85' left='113' width='33' height='33'/>
+</image>
+<image file='2008_007676.bmp'>
+    <box top='133' left='106' width='53' height='53'/>
+    <box top='80' left='139' width='42' height='42'/>
+    <box top='116' left='194' width='42' height='42'/>
+    <box top='61' left='227' width='37' height='37'/>
+    <box top='127' left='259' width='44' height='44'/>
+    <box top='119' left='316' width='44' height='44'/>
+    <box top='130' left='367' width='40' height='40'/>
+</image>
+<image file='2009_004587.bmp'>
+    <box top='280' left='271' width='59' height='59'/>
+    <box top='45' left='154' width='74' height='74'/>
+</image>
+
+
+</images>
+</dataset>

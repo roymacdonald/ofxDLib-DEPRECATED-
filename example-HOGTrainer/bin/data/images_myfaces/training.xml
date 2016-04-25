@@ -1,0 +1,36 @@
+<dataset>
+<name>Training faces</name>
+<comment>These are images from the PASCAL VOC 2011 dataset.</comment>
+<images>
+
+
+
+<image file='2008_001322.bmp'>
+    <box top='159' left='104' width='74' height='74'/>
+    <box top='216' left='233' width='60' height='60'/>
+    <box top='164' left='356' width='78' height='78'/>
+</image>
+<image file='2008_001009.bmp'>
+    <box top='86' left='152' width='68' height='68'/>
+    <box top='218' left='132' width='75' height='75'/>
+</image>
+<image file='2008_002079.bmp'>
+    <box top='170' left='439' width='47' height='47'/>
+    <box top='164' left='409' width='37' height='37'/>
+    <box top='137' left='348' width='35' height='35'/>
+    <box top='138' left='127' width='28' height='28'/>
+    <box top='134' left='66' width='35' height='35'/>
+    <box top='189' left='39' width='47' height='47'/>
+</image>
+<image file='2007_007763.bmp'>
+    <box top='194' left='96' width='33' height='33'/>
+    <box top='218' left='182' width='27' height='27'/>
+    <box top='236' left='313' width='39' height='39'/>
+    <box top='90' left='388' width='39' height='39'/>
+    <box top='91' left='295' width='36' height='36'/>
+    <box top='96' left='199' width='34' height='34'/>
+    <box top='123' left='160' width='31' height='31'/>
+</image>
+
+</images>
+</dataset>

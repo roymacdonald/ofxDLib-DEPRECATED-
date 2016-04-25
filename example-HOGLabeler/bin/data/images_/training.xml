@@ -1,0 +1,32 @@
+<dataset>
+<name>Training People from overhead</name>
+<comment>These are images from me.</comment>
+<images>
+<image file='2008_001009.bmp'>
+<box top='95' left='188' width='40' height='40'/>
+<box top='179' left='204' width='40' height='48'/>
+<box top='312' left='229' width='54' height='53'/>
+<box top='379' left='78' width='69' height='64'/>
+<box top='299' left='74' width='40' height='57'/>
+<box top='195' left='80' width='52' height='51'/>
+<box top='156' left='107' width='39' height='48'/>
+</image>
+<image file='2008_001322.bmp'>
+<box top='146' left='67' width='76' height='99'/>
+<box top='129' left='183' width='102' height='129'/>
+</image>
+<image file='2008_002079.bmp'>
+<box top='104' left='133' width='77' height='117'/>
+<box top='216' left='181' width='92' height='119'/>
+<box top='344' left='120' width='113' height='144'/>
+</image>
+<image file='2008_002470.bmp'>
+<box top='112' left='117' width='52' height='62'/>
+<box top='56' left='119' width='47' height='56'/>
+<box top='20' left='168' width='69' height='73'/>
+<box top='335' left='113' width='62' height='69'/>
+<box top='401' left='141' width='46' height='68'/>
+<box top='497' left='152' width='-57' height='72'/>
+</image>
+</images>
+</dataset>
