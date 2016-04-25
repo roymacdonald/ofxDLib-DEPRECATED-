@@ -8,6 +8,7 @@
 
 #include "FaceTracker.h"
 using namespace ofxDLib;
+<<<<<<< HEAD
 
 FaceTracker::FaceTracker() {
     smoothingRate = 0.5;
@@ -262,10 +263,49 @@ void FaceTracker::setDrawStyle(DrawStyle style) {
 
 //--------------------------------------------------------------
 void FaceTracker::draw() {
+=======
+//--------------------------------------------------------------
+void FaceTracker::setup(string predictorDatFilePath){
+            detector = dlib::get_frontal_face_detector();
+        if(predictorDatFilePath.empty()){
+            predictorDatFilePath = ofToDataPath("shape_predictor_68_face_landmarks.dat");
+        }
+        ofFile f(predictorDatFilePath);
+        if (f.exists()) {
+            dlib::deserialize(f.getAbsolutePath()) >> sp;
+        }else{
+            ofLogError("ofxDLib::FaceTracker","SHAPE PREDICTOR DAT FILE MISSING!!!");
+        }
+
+ 
+}
+//--------------------------------------------------------------
+tuple<int,int> FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale){
+    
+    dlib::array2d< dlib::rgb_pixel> img;
+    
+    toDLib(pixels , img);
+    if (bUpscale) {
+        pyramid_up(img);
+    }
+    
+    dets.clear();
+    dets = detector(img);
+    shapes.clear();
+    for (unsigned long j = 0; j < dets.size(); ++j){
+        shapes.push_back(sp(img, dets[j]));
+    }
+    
+    return make_tuple(img.nc(),img.nr());
+}
+//--------------------------------------------------------------
+void FaceTracker::draw(){
+>>>>>>> 71a740246287903574feaa55b3a03431b0b86caa
     ofPushStyle();
     
     ofSetColor(ofColor::red);
     ofNoFill();
+<<<<<<< HEAD
     
     for (auto & face : faces) {
         ofDrawBitmapString(ofToString(face.label), face.rect.getTopLeft());
@@ -294,5 +334,18 @@ void FaceTracker::draw() {
         
     }
     
+=======
+    for (auto& r:dets) {
+        ofDrawRectangle(toOf(r));
+    }
+    
+    ofFill();
+    ofSetColor(ofColor::red);
+    for (auto & s:shapes) {
+        for (int i = 0; i < s.num_parts(); i++) {
+            ofDrawCircle(toOf(s.part(i)),3);
+        }
+    }
+>>>>>>> 71a740246287903574feaa55b3a03431b0b86caa
     ofPopStyle();
 }

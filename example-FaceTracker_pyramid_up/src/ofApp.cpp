@@ -5,9 +5,13 @@ void ofApp::setup(){
     ft.setup("");
     video.setDeviceID(0);
 //    video.setup(720, 480);
+<<<<<<< HEAD
 //    video.setup(320, 240);
 //     video.setup(960, 600);
      video.setup(640, 400);
+=======
+    video.setup(320, 240);
+>>>>>>> 71a740246287903574feaa55b3a03431b0b86caa
 }
 
 //--------------------------------------------------------------
@@ -15,6 +19,7 @@ void ofApp::update(){
     video.update();
     if(video.isFrameNew()){
         //http://www.cppsamples.com/common-tasks/return-multiple-values.html
+<<<<<<< HEAD
         tie(newImgWidth, newImgHeight) = ft.findFaces(video.getPixels(),false);
         
 //        ofImage smaller_image;
@@ -25,6 +30,9 @@ void ofApp::update(){
       
 //        tie(newImgWidth, newImgHeight) = ft.findFaces(smaller_image.getPixels(),true);
 
+=======
+        tie(newImgWidth, newImgHeight) = ft.findFaces(video.getPixels(),true);
+>>>>>>> 71a740246287903574feaa55b3a03431b0b86caa
     }
 }
 
