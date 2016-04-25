@@ -6,11 +6,9 @@ Inspired on ofxCv
 
 Comes with a face tracker example and works with projectGenerator.
 
-<<<<<<< HEAD
-only tested on osx 10.9.5 with OF 0.9.3 
-=======
-only tested on osx 10.9.5 with OF 0.9.3, osx 10.10.5 with OF 0.9.3
->>>>>>> 71a740246287903574feaa55b3a03431b0b86caa
+Only tested on osx 10.9.5 with OF 0.9.3, osx 10.10.5 with OF 0.9.3
+
+Additional contributions for face landmark tracking come from [m9dfukc](https://github.com/m9dfukc/ofxDLib).
 
 
 ##To run example
