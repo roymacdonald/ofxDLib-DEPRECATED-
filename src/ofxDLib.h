@@ -24,7 +24,6 @@ static ofPoint toOf(const dlib::point& p){
     return ofPoint(p.x(), p.y(), p.z() );
 }
 //------------------------------------------------------------------------
-<<<<<<< HEAD
 static vector<ofVec3f> toOf(const vector<dlib::point>& p){
     vector<ofVec3f> out(p.size());
     for(int i = 0; i < p.size(); i++) {
@@ -41,8 +40,7 @@ static vector<ofRectangle> toOf(const vector<dlib::rectangle>& r){
     return out;
 }
 //------------------------------------------------------------------------
-=======
->>>>>>> 71a740246287903574feaa55b3a03431b0b86caa
+
 static void toDLib(const ofPixels& inPix, dlib::array2d<dlib::rgb_pixel>& outPix){
     
     int width = inPix.getWidth();
@@ -72,7 +70,6 @@ static void toDLib(const ofPixels& inPix, dlib::array2d<dlib::rgb_pixel>& outPix
 }
     
     
-<<<<<<< HEAD
 static bool toOf(const dlib::matrix<unsigned char>& inMat, ofPixels& outPix){
         
     int w = inMat.nc();
@@ -105,39 +102,8 @@ static bool toOf(const dlib::array2d<unsigned char>& inPix, ofPixels& outPix){
     return true;
 }
     
-=======
-static  bool toOf(const dlib::matrix<unsigned char>& inMat,ofPixels& outPix ){
-        
-        int w = inMat.nc();
-        int h = inMat.nr();
-        
-        outPix.allocate(w, h, 1);
-        
-        for(int y = 0; y<h; y++){
-            for(int x=0; x<w;x++){
-                outPix.setColor(x, y, ofColor(inMat(y,x)));
-            }
-        }
-        
-        
-        return true;
-    }
-  static  bool toOf(const dlib::array2d<unsigned char>& inPix,ofPixels& outPix ){
-        
-        int h = inPix.nr(); //number of rows
-        int w = inPix.nc(); //nuber of cols
-        ofLog()<<"inPix.nr() "<<h<<",  inPix.nc() "<<w;
-        outPix.allocate(w, h, 1);
-        
-        for(int y = 0; y<h; y++){
-            for(int x=0; x<w;x++){
-                outPix.setColor(x, y, ofColor(inPix[y][x]));
-            }
-        }
-        return true;
-    }
     
->>>>>>> 71a740246287903574feaa55b3a03431b0b86caa
+
     //*/
 ////------------------------------------------------------------------------
 //void toOf(const array2d<rgb_pixel>& inPix, ofPixels& outPix){
