@@ -100,13 +100,14 @@ void ofApp::update(){
 //             facesAugmented[i].setImage(video.getPixels());
 //         }
         
+        
         //set smoothing seperatly for each face
         for(int i=0;i<ft.size(); i++){
             float temp_v = ft.getVelocity(i).length();
             temp_v = ofMap(temp_v,0,40,0.3,1,true);
             unsigned int temp_label = ft.getLabel(i);
             
-            ft.setSmoothingRate(temp_label,temp_v);
+            ft.setSmoothingRate(temp_label,temp_v);//only for landmarks, does not apply to .rect since that comes from the rectTracker direcly
             
         }
         
