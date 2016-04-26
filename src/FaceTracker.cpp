@@ -51,12 +51,16 @@ tuple<int,int> FaceTracker::findFaces(const ofPixels& pixels, bool bUpscale) {
         if (!existsSmoothingPerFace) smoothingRatePerFace[label] = smoothingRate;
         float currentSmoothingRate = smoothingRatePerFace[label];
         
+        //TODO: face.rect comes from tracker and not dlib this means currentSmoothingRate is not what influences this rects smoothing. but rather setSmoothing(float xx). shouldn't be split
+        //because if one uses veloctiy to adjust smoothing of face features this will not effect the rect somoothing, and rect smoothing is applied to all found track faces
+        
         Face face;
         face.label = label;
         face.rect = tracker.getSmoothed(label);
         face.age = tracker.getAge(label);
 //        ofLog()<<label<<" rect "<<face.rect;
 //        ofLog()<<label<<" age "<<face.age;
+//         ofLog()<<label<<" currentSmoothingRate "<<currentSmoothingRate;
 //        ofLog()<<label<<" getLastSeen "<<tracker.getLastSeen(label);
         
         face.velocity = tracker.getVelocity(i);
