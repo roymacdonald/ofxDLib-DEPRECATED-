@@ -3,6 +3,8 @@
 #ifndef DLIB_ALL_SOURCe_
 #define DLIB_ALL_SOURCe_
 
+
+
 // ISO C++ code
 #include "../base64/base64_kernel_1.cpp"
 #include "../bigint/bigint_kernel_1.cpp"
@@ -59,6 +61,8 @@
 #include "../image_loader/jpeg_loader.cpp"
 #include "../image_saver/save_jpeg.cpp"
 #endif
+
+#define DLIB_NO_GUI_SUPPORT //https://github.com/roymacdonald/ofxDLib/issues/6
 
 #ifndef DLIB_NO_GUI_SUPPORT
 #include "../gui_widgets/fonts.cpp"

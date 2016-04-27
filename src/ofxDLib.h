@@ -24,6 +24,23 @@ static ofPoint toOf(const dlib::point& p){
     return ofPoint(p.x(), p.y(), p.z() );
 }
 //------------------------------------------------------------------------
+static vector<ofVec3f> toOf(const vector<dlib::point>& p){
+    vector<ofVec3f> out(p.size());
+    for(int i = 0; i < p.size(); i++) {
+        out[i] = toOf(p[i]);
+    }
+    return out;
+}
+//------------------------------------------------------------------------
+static vector<ofRectangle> toOf(const vector<dlib::rectangle>& r){
+    vector<ofRectangle> out(r.size());
+    for(int i = 0; i < r.size(); i++) {
+        out[i] = toOf(r[i]);
+    }
+    return out;
+}
+//------------------------------------------------------------------------
+
 static void toDLib(const ofPixels& inPix, dlib::array2d<dlib::rgb_pixel>& outPix){
     
     int width = inPix.getWidth();
@@ -53,37 +70,40 @@ static void toDLib(const ofPixels& inPix, dlib::array2d<dlib::rgb_pixel>& outPix
 }
     
     
-static  bool toOf(const dlib::matrix<unsigned char>& inMat,ofPixels& outPix ){
+static bool toOf(const dlib::matrix<unsigned char>& inMat, ofPixels& outPix){
         
-        int w = inMat.nc();
-        int h = inMat.nr();
-        
-        outPix.allocate(w, h, 1);
-        
-        for(int y = 0; y<h; y++){
-            for(int x=0; x<w;x++){
-                outPix.setColor(x, y, ofColor(inMat(y,x)));
-            }
+    int w = inMat.nc();
+    int h = inMat.nr();
+    
+    outPix.allocate(w, h, 1);
+    
+    for(int y = 0; y<h; y++){
+        for(int x=0; x<w;x++){
+            outPix.setColor(x, y, ofColor(inMat(y,x)));
         }
-        
-        
-        return true;
-    }
-  static  bool toOf(const dlib::array2d<unsigned char>& inPix,ofPixels& outPix ){
-        
-        int h = inPix.nr(); //number of rows
-        int w = inPix.nc(); //nuber of cols
-        ofLog()<<"inPix.nr() "<<h<<",  inPix.nc() "<<w;
-        outPix.allocate(w, h, 1);
-        
-        for(int y = 0; y<h; y++){
-            for(int x=0; x<w;x++){
-                outPix.setColor(x, y, ofColor(inPix[y][x]));
-            }
-        }
-        return true;
     }
     
+    return true;
+}
+    
+static bool toOf(const dlib::array2d<unsigned char>& inPix, ofPixels& outPix){
+    
+    int h = inPix.nr(); //number of rows
+    int w = inPix.nc(); //nuber of cols
+    ofLog()<<"inPix.nr() "<<h<<",  inPix.nc() "<<w;
+    outPix.allocate(w, h, 1);
+    
+    for(int y = 0; y<h; y++){
+        for(int x=0; x<w;x++){
+            outPix.setColor(x, y, ofColor(inPix[y][x]));
+        }
+    }
+    
+    return true;
+}
+    
+    
+
     //*/
 ////------------------------------------------------------------------------
 //void toOf(const array2d<rgb_pixel>& inPix, ofPixels& outPix){
