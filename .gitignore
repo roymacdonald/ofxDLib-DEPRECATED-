@@ -89,3 +89,6 @@ Desktop.ini
 *.log
 *.sql
 *.sqlite
+
+# ofxDlib specific
+/model/*
