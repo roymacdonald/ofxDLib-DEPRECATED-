@@ -30,17 +30,18 @@ common:
 	# but if the addon or addon libraries need special search paths they can be
 	# specified here separated by spaces or one per line using +=
 	 
-	 ADDON_INCLUDES = libs/
-	 ADDON_INCLUDES += /usr/X11R6/include/
-	 ADDON_INCLUDES += src
+	 # ADDON_INCLUDES = libs/
+	 # ADDON_INCLUDES += /usr/X11R6/include/
+	 # ADDON_INCLUDES += src
 	
 	# any special flag that should be passed to the compiler when using this
 	# addon
-	# ADDON_CFLAGS =
+	ADDON_CFLAGS = -O2 
+	ADDON_CFLAGS += -Wno-strict-aliasing
 	
 	# any special flag that should be passed to the linker when using this
 	# addon, also used for system libraries with -lname
-	ADDON_LDFLAGS = -L/usr/X11R6/lib
+	# ADDON_LDFLAGS = -L/usr/X11R6/lib
 	
 	# linux only, any library that should be included in the project using
 	# pkg-config
@@ -53,19 +54,19 @@ common:
 	# in the src folders in libs and the root of the addon. if your addon needs
 	# to include files in different places or a different set of files per platform
 	# they can be specified here
-	ADDON_SOURCES = libs/dlib/all/source.cpp
-	ADDON_SOURCES += src/FaceTracker.cpp
-	ADDON_SOURCES += src/FaceTracker.h
-	ADDON_SOURCES += src/ObjectTracker.cpp
-	ADDON_SOURCES += src/ObjectTracker.h
-	ADDON_SOURCES += src/HOGtrainer.cpp
-	ADDON_SOURCES += src/HOGtrainer.h
-#	ADDON_SOURCES += src/ofxDLib.cpp
-	ADDON_SOURCES += src/ofxDLib.h
+# 	ADDON_SOURCES = libs/dlib/all/source.cpp
+# 	ADDON_SOURCES += src/FaceTracker.cpp
+# 	ADDON_SOURCES += src/FaceTracker.h
+# 	ADDON_SOURCES += src/ObjectTracker.cpp
+# 	ADDON_SOURCES += src/ObjectTracker.h
+# 	ADDON_SOURCES += src/HOGtrainer.cpp
+# 	ADDON_SOURCES += src/HOGtrainer.h
+# #	ADDON_SOURCES += src/ofxDLib.cpp
+# 	ADDON_SOURCES += src/ofxDLib.h
 	
 	# some addons need resources to be copied to the bin/data folder of the project
 	# specify here any files that need to be copied, you can use wildcards like * and ?
-	# ADDON_DATA = 
+	ADDON_DATA = model/
 	
 	# when parsing the file system looking for libraries exclude this for all or
 	# a specific platform
@@ -73,9 +74,24 @@ common:
 	
 	# when parsing the file system looking for sources exclude this for all or
 	# a specific platform
-	#ADDON_SOURCES_EXCLUDE = libs/%
+	ADDON_SOURCES_EXCLUDE = libs/dlib/include/%
 	
 	# when parsing the file system looking for include paths exclude this for all or
 	# a specific platform
-	#ADDON_INCLUDES_EXCLUDE = libs/%
+	ADDON_INCLUDES_EXCLUDE = libs/dlib/include/%
+
+	ADDON_INCLUDES = libs/dlib/include
+	ADDON_INCLUDES += src
 	
+
+osx:
+	ADDON_LIBS = libs/dlib/lib/osx/libdlib.a
+
+android/armeabi-v7a:
+	ADDON_LIBS = libs/dlib/lib/android/armeabi-v7a/libdlib.a
+
+android/x86:
+	ADDON_LIBS = libs/dlib/lib/android/x86/libdlib.a
+
+vs:
+	ADDON_LIBS = libs/dlib/lib/win/Release/dlib.lib
