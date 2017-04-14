@@ -92,3 +92,5 @@ Desktop.ini
 
 # ofxDlib specific
 /model/*
+!/model/README.md
+!/model/.gitkeep
