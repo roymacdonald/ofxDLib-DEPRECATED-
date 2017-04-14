@@ -8,14 +8,21 @@
 //http://blog.dlib.net/2014/02/dlib-186-released-make-your-own-object.html
 
 
-//!!! in min_cut.h had to change nil to a different variabl name like c_nil !!!
+
 
 #pragma once
 
 #include "ofxDLib.h"
-
+/////---------------
+// This is a really ugly hack to avoid problems with dlib, where, by reasons I don't know uses nil to name objects, yet in objective-C nil is a typedef for nullptr. With this it compiles and runs, although I have no idea if this affects anything else.
+#if defined(TARGET_OSX) || defined(TARGET_OF_IPHONE) || defined(TARGET_OF_IOS)
+#ifdef nil
+#undef nil
+#endif
+#endif
+/////---------------
 #include <dlib/svm_threaded.h>
-#include <dlib/gui_widgets.h>
+//#include <dlib/gui_widgets.h>
 #include <dlib/image_processing.h>
 #include <dlib/data_io.h>
 
