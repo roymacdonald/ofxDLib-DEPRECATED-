@@ -94,3 +94,10 @@ Desktop.ini
 /model/*
 !/model/README.md
 !/model/.gitkeep
+/data/*
+#ignore example project files
+/example-*/Makefile
+/example-*/Project.xcconfig
+/example-*/config.make
+/example-*/*.xcodeproj
+/example-*/openFrameworks-Info.plist
