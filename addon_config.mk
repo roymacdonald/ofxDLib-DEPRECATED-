@@ -30,10 +30,9 @@ common:
 	# but if the addon or addon libraries need special search paths they can be
 	# specified here separated by spaces or one per line using +=
 	 
-	 # ADDON_INCLUDES = libs/
-	 # ADDON_INCLUDES += /usr/X11R6/include/
-	 # ADDON_INCLUDES += src
-	
+	ADDON_INCLUDES = libs/dlib/include
+	ADDON_INCLUDES += src
+
 	# any special flag that should be passed to the compiler when using this
 	# addon
 	ADDON_CFLAGS = -O2 
@@ -41,7 +40,7 @@ common:
 	
 	# any special flag that should be passed to the linker when using this
 	# addon, also used for system libraries with -lname
-	# ADDON_LDFLAGS = -L/usr/X11R6/lib
+	# ADDON_LDFLAGS = 
 	
 	# linux only, any library that should be included in the project using
 	# pkg-config
@@ -54,16 +53,8 @@ common:
 	# in the src folders in libs and the root of the addon. if your addon needs
 	# to include files in different places or a different set of files per platform
 	# they can be specified here
-# 	ADDON_SOURCES = libs/dlib/all/source.cpp
-# 	ADDON_SOURCES += src/FaceTracker.cpp
-# 	ADDON_SOURCES += src/FaceTracker.h
-# 	ADDON_SOURCES += src/ObjectTracker.cpp
-# 	ADDON_SOURCES += src/ObjectTracker.h
-# 	ADDON_SOURCES += src/HOGtrainer.cpp
-# 	ADDON_SOURCES += src/HOGtrainer.h
-# #	ADDON_SOURCES += src/ofxDLib.cpp
-# 	ADDON_SOURCES += src/ofxDLib.h
-	
+	# ADDON_SOURCES = 
+
 	# some addons need resources to be copied to the bin/data folder of the project
 	# specify here any files that need to be copied, you can use wildcards like * and ?
 	ADDON_DATA = model/
@@ -79,13 +70,28 @@ common:
 	# when parsing the file system looking for include paths exclude this for all or
 	# a specific platform
 	ADDON_INCLUDES_EXCLUDE = libs/dlib/include/%
-
-	ADDON_INCLUDES = libs/dlib/include
-	ADDON_INCLUDES += src
 	
 
 osx:
 	ADDON_LIBS = libs/dlib/lib/osx/libdlib.a
+
+	# Clang has problems with deep, recursive templates.
+	# https://github.com/davisking/dlib/issues/229
+	# Increase the depth if needed.
+	ADDON_CPPFLAGS += -ftemplate-depth=512
+
+linux64:
+	ADDON_LIBS = libs/dlib/lib/linux64/libdlib.a
+	ADDON_PKG_CONFIG_LIBRARIES = libpng libjpeg
+
+	# If dlib is compiled with libblas/liblapack support, you may need to include these.
+	# ADDON_PKG_CONFIG_LIBRARIES+=blas lapack
+
+	# If dlib is compiled with CUDA support, you made need to include these.
+	# ADDON_LDFLAGS += -L/usr/local/cuda/lib64 -lcuda -lcudart -lcudnn -lcublas -lcurand -lcusolver
+
+	# If dlib is compiled with MKL support, you may need to add an include here.
+	# ADDON_INCLUDES += /opt/intel/mkl/include
 
 android/armeabi-v7a:
 	ADDON_LIBS = libs/dlib/lib/android/armeabi-v7a/libdlib.a
