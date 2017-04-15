@@ -7,19 +7,20 @@
 // always off.  If you don't define one of these two macros then DLIB_ASSERT will toggle
 // automatically depending on the state of certain other macros, which is not what you want
 // when creating a shared library.
-//#define ENABLE_ASSERTS       // asserts always enabled 
-//#define DLIB_DISABLE_ASSERTS // asserts always disabled 
+/* #undef ENABLE_ASSERTS */
+#define DLIB_DISABLE_ASSERTS // asserts always disabled 
 
-//#define DLIB_ISO_CPP_ONLY
-//#define DLIB_NO_GUI_SUPPORT
-//#define DLIB_ENABLE_STACK_TRACE
+/* #undef DLIB_ISO_CPP_ONLY */
+#define DLIB_NO_GUI_SUPPORT
+/* #undef DLIB_ENABLE_STACK_TRACE */
 
 // You should also consider telling dlib to link against libjpeg, libpng, libgif, fftw, CUDA, 
 // and a BLAS and LAPACK library.  To do this you need to uncomment the following #defines.
-// #define DLIB_JPEG_SUPPORT
-// #define DLIB_PNG_SUPPORT
-// #define DLIB_GIF_SUPPORT
-// #define DLIB_USE_FFTW
-// #define DLIB_USE_BLAS
-// #define DLIB_USE_LAPACK
-// #define DLIB_USE_CUDA
+#define DLIB_JPEG_SUPPORT
+#define DLIB_PNG_SUPPORT
+#define DLIB_GIF_SUPPORT
+/* #undef DLIB_USE_FFTW */
+#define DLIB_USE_BLAS
+#define DLIB_USE_LAPACK
+/* #undef DLIB_USE_CUDA */
+/* #undef DLIB_USE_MKL_FFT */
