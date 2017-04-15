@@ -14,21 +14,9 @@ GIT_TAG=
 
 FORMULA_TYPES=( "osx" "android" "linux64")
 
-# download the source code and unpack it into LIB_NAME
+# download the source code
 function download() {
-	if [ "$TYPE" == "osx" ] ; then
-		#this is to fix an issue when compiling for apple machines. To be removed once the PR gets merged.
-		curl -Lk http://github.com/roymacdonald/dlib/archive/fix-nil-mac.zip -o dlib-fix-nil-mac.zip
-		unzip dlib-fix-nil-mac.zip
-		mv dlib-fix-nil-mac dlib
-		rm dlib-fix-nil-mac.zip
-	else
-		# curl -Lk http://dlib.net/files/dlib-$VER.tar.bz2 -o dlib-$VER.tar.bz2
-		# tar -xjvf dlib-$VER.tar.bz2
-		# mv dlib-$VER dlib
-		# rm dlib-$VER.tar.bz2
-		git clone $GIT_URL
-	fi
+		git clone --depth 1 $GIT_URL
 }
 
 # prepare the build environment, executed inside the lib src dir
