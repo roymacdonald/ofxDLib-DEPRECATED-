@@ -49,10 +49,11 @@ function copy() {
 	fi
 	mkdir -p $1/include
 
-if [ "$TYPE" == "osx" ] || [ "$TYPE" == "linux64" ] ; then
+	if [ "$TYPE" == "osx" ] || [ "$TYPE" == "linux64" ] ; then
 		cd $BUILD_DIR/dlib/dlib/build
 		make install
 		cd -
+		mkdir -p  $1/lib/$TYPE/
 		mv $1/install/lib/libdlib.a $1/lib/$TYPE/
 		mv $1/install/include/dlib $1/include/
 		rm -r $1/install
@@ -64,6 +65,17 @@ if [ "$TYPE" == "osx" ] || [ "$TYPE" == "linux64" ] ; then
 	    cp -vr obj/local/armeabi-v7a/libdlib.a $1/lib/android/armeabi-v7a/libdlib.a
 	    cp -vr obj/local/x86/libdlib.a $1/lib/android/x86/libdlib.a
 	fi
+	OFXDLIB_LIBS_INCLUDE="$ADDONS_DIR/ofxDLib/libs/dlib/include"
+	OFXDLIB_LIBS_LIB="$ADDONS_DIR/ofxDLib/libs/dlib/lib/$TYPE"
+	rm -rf $OFXDLIB_LIBS_INCLUDE 
+	rm -rf $OFXDLIB_LIBS_LIB
+
+	mkdir -p $OFXDLIB_LIBS_INCLUDE
+	mkdir -p $OFXDLIB_LIBS_LIB
+	
+	echo "Copying ..."
+	cp -vR $1/include/ $OFXDLIB_LIBS_INCLUDE
+	cp -vR $1/lib/$TYPE/ $OFXDLIB_LIBS_LIB
 }
 
 # executed inside the lib src dir
