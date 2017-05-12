@@ -1,5 +1,8 @@
-ofxDLib
+ofxDLib [DEPRECATED]
 =======
+
+##I have deprecated this addon in favor of https://github.com/bakercp/ofxDlib, which has a much better implementation with openFrameworks. The examples and classes of this addon are going to be merged into this other one.
+
 
 Addon for openFrameworks to deal with [DLib](http://dlib.net/) data types.
 Inspired on ofxCv
